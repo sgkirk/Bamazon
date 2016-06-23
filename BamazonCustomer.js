@@ -15,17 +15,9 @@ connection.connect(function(err){
 connection.query('SELECT ItemID, ProductName, Price FROM Products', function(err, data) {
 	if (err) throw err;
 	console.log('------------' + '\n' + 'Here is a list of the Items For Sale!' + '\n' + '------------');
-	console.log(data[0]);
-	console.log(data[1]);
-	console.log(data[2]);
-	console.log(data[3]);
-	console.log(data[4]);
-	console.log(data[5]);
-	console.log(data[6]);
-	console.log(data[7]);
-	console.log(data[8]);
-	console.log(data[9]);
-	console.log(data[10]);
+	for (var i = 0; i < data.length; i++) {
+		console.log(data[i].ItemID + " | " + data[i].ProductName + " | " + data[i].Price);
+	}
 });
 
-//connection.end();
+connection.end();
